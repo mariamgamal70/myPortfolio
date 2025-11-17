@@ -1,0 +1,59 @@
+.skill-card img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.skill-card h6 {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.skill-card {
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+/* Project cards and experience cards: add hover/focus shadow for better affordance */
+/* Unified interactive card styles: skills, projects, experience, about feature cards, and contact cards */
+/* This centralizes the same lift/shadow/focus behavior so maintenance is easier. */
+.interactive-card,
+.skill-card,
+.project-item .card,
+.experience-card,
+#about .card,
+.contact-card {
+  transition: transform 180ms ease, box-shadow 200ms ease;
+}
+
+/* Hover and keyboard focus state (uses :focus-within so children links/buttons trigger the effect) */
+.interactive-card:hover,
+.skill-card:hover,
+.project-item .card:hover,
+.experience-card:hover,
+#about .card:hover,
+.contact-card:hover,
+.interactive-card:focus-within,
+.skill-card:focus-within,
+.project-item .card:focus-within,
+.experience-card:focus-within,
+#about .card:focus-within,
+.contact-card:focus-within {
+  transform: translateY(-6px);
+  box-shadow: 0 26px 50px rgba(16, 24, 40, 0.12), 0 6px 18px rgba(16, 24, 40, 0.06);
+}
+
+/* keyboard focus-visible ring for accessibility */
+.interactive-card:focus-within:focus-visible,
+.skill-card:focus-within:focus-visible,
+.project-item .card:focus-within:focus-visible,
+.experience-card:focus-within:focus-visible,
+#about .card:focus-within:focus-visible,
+.contact-card:focus-within:focus-visible {
+  outline: 3px solid rgba(108, 170, 135, 0.14);
+  outline-offset: 4px;
+}

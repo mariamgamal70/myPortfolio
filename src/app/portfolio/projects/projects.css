@@ -1,0 +1,25 @@
+.horizontal-scroll-cards {
+  /*primary and secondary colors */
+  scrollbar-color: #6caa87 #dee2e6;
+  scrollbar-width: thin;
+}
+.project-btn {
+  background-color: white;
+  color: #6caa87;
+  border: none;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: solid 1px #6caa87;
+}
+
+.project-btn:hover {
+  background-color: #6caa87;
+  color: white;
+}
+.badge {
+  color: white;
+  background-color: #6caa87;
+}

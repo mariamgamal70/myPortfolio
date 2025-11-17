@@ -1,0 +1,63 @@
+#contact .contact-container {
+  justify-content: center;
+  /* center all contact items */
+  gap: 1.5rem;
+}
+
+#contact .contact-item {
+  text-align: center;
+  width: 130px;
+  /* consistent item width */
+}
+
+#contact .contact-item img {
+  display: block;
+  margin: 0 auto;
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  border-radius: 10px;
+  transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+}
+.contact-card {
+  background: #ffffff;
+  min-width: 120px;
+  width: 130px;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.contact-card .contact-img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.contact-card .contact-name {
+  margin-top: 6px;
+  color: #4b4b4b;
+}
+
+.contact-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.10);
+}
+
+.contact-card:focus {
+  outline: none;
+}
+
+.contact-card:focus-visible {
+  box-shadow: 0 0 0 4px rgba(108, 170, 135, 0.12), 0 18px 48px rgba(0, 0, 0, 0.10);
+}
+
+@media (max-width: 576px) {
+  .contact-card {
+    width: 100%;
+    min-width: auto;
+  }
+}

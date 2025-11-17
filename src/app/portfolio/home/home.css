@@ -1,0 +1,29 @@
+.intro-btn {
+  background-color: transparent;
+  color: #6caa87;
+  border: none;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: solid 1px #6caa87;
+}
+.intro-btn a {
+  text-decoration: none;
+  color: #6caa87;
+}
+
+.intro-btn:hover a {
+  color: white;
+}
+
+.intro-btn:hover {
+  background-color: #6caa87;
+}
+.portfolio-image {
+  max-width: 100%;
+  width: 40rem;
+  height: auto;
+  box-shadow: 0px 0px 30px #db735c
+}

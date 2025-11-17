@@ -1,0 +1,76 @@
+.experience-list {
+  position: relative;
+  /* tighter: content moves closer to the line */
+  padding-left: 1rem;
+}
+
+.experience-list::before {
+  /* vertical line placed nearer the card edge */
+  content: "";
+  position: absolute;
+  left: 0.5rem;
+  top: 1.2rem;
+  bottom: 1.2rem;
+  width: 2px;
+  background: #eee;
+}
+
+.experience-item {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.experience-item::before {
+  /* dot overlaps slightly into the card */
+  content: "";
+  position: absolute;
+  left: -0.05rem;
+  top: 0.75rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid #6caa87;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.experience-date {
+  font-size: 0.95rem;
+}
+
+.experience-card {
+  padding: 1.25rem;
+}
+.check-icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
+  margin-right: 0.5rem;
+  fill: #198754;
+  /* bootstrap success green */
+}
+
+@media (max-width: 767px) {
+  .experience-list::before {
+    left: .45rem;
+  }
+
+  .experience-item::before {
+    left: 0rem;
+  }
+}
+
+/* Resume-style rows used for Education / Activities / Awards */
+.resume-item {
+  padding: 0.75rem 0;
+  /* border-bottom: 1px solid #f0f0f0; */
+}
+
+.resume-item h3 {
+  margin: 0;
+  font-size: 1.125rem;
+}
+
+.resume-item .text-muted.small {
+  color: #6b6b6b;
+}
