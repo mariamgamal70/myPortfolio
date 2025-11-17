@@ -1,0 +1,152 @@
+<!-- /c:/Users/maria/OneDrive/Desktop/MEAN stack course NTI/angular/myPortfolio/src/app/components/sidenavbar/sidenavbar.html -->
+<style>
+  :host { display: block; }
+  .sidebar { width: 250px; }
+  main.content-area { transition: margin-left .2s ease; }
+  @media (min-width: 768px) {
+    main.content-area { margin-left: 250px; }
+  }
+  @media (max-width: 767.98px) {
+    .sidebar { display: none; }
+  }
+</style>
+
+<div class="d-flex">
+  <!-- Desktop sidebar (visible md+) -->
+  <nav class="sidebar bg-light border-end vh-100 d-none d-md-block p-3">
+    <a class="navbar-brand mb-4 d-flex align-items-center" href="#">
+      <span class="fs-5 fw-bold">My Dashboard</span>
+    </a>
+
+    <ul class="nav nav-pills flex-column">
+      <li class="nav-item">
+        <a class="nav-link active" routerLink="overview" aria-current="page">
+          <span class="me-2">🏠</span> Overview
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="about">
+          <span class="me-2">📊</span> About
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="education">
+          <span class="me-2">🎓</span> Education
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="experience">
+          <span class="me-2">💼</span> Experience
+        </a>
+      </li>
+      <li class="nav-item mt-3">
+        <a class="nav-link" routerLink="projects">
+          <span class="me-2">🧩</span> Projects
+        </a>
+      </li>
+      <li class="nav-item mt-3">
+        <a class="nav-link" routerLink="skills">
+          <span class="me-2">⚙️</span> Skills
+        </a>
+      </li>
+      <li class="nav-item mt-3">
+        <a class="nav-link" routerLink="activities">
+          <span class="me-2">🤝</span> Activities
+        </a>
+      </li>
+      <li class="nav-item mt-3">
+        <a class="nav-link" routerLink="awards">
+          <span class="me-2">🏆</span> Awards
+        </a>
+      </li>
+      <li class="nav-item mt-auto">
+        <a class="nav-link text-danger" routerLink="logout">
+          <span class="me-2">🔓</span> Logout
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Mobile toggler (visible < md) -->
+  <div class="d-md-none w-100 p-2 border-bottom bg-white">
+    <button
+      class="btn btn-outline-primary"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#mobileSidebar"
+      aria-controls="mobileSidebar"
+    >
+      ☰ Menu
+    </button>
+  </div>
+
+  <!-- Offcanvas mobile sidebar -->
+  <div
+    class="offcanvas offcanvas-start"
+    tabindex="-1"
+    id="mobileSidebar"
+    aria-labelledby="mobileSidebarLabel"
+  >
+    <div class="offcanvas-header">
+      <h5 id="mobileSidebarLabel">My Dashboard</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body p-0">
+      <nav class="bg-light h-100 p-3">
+        <ul class="nav nav-pills flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="overview" aria-current="page">
+              <span class="me-2">🏠</span> Overview
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="about">
+              <span class="me-2">📊</span> About
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="education">
+              <span class="me-2">🎓</span> Education
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="experience">
+              <span class="me-2">💼</span> Experience
+            </a>
+          </li>
+          <li class="nav-item mt-3">
+            <a class="nav-link" routerLink="projects">
+              <span class="me-2">🧩</span> Projects
+            </a>
+          </li>
+          <li class="nav-item mt-3">
+            <a class="nav-link" routerLink="skills">
+              <span class="me-2">⚙️</span> Skills
+            </a>
+          </li>
+          <li class="nav-item mt-3">
+            <a class="nav-link" routerLink="activities">
+              <span class="me-2">🤝</span> Activities
+            </a>
+          </li>
+          <li class="nav-item mt-3">
+            <a class="nav-link" routerLink="awards">
+              <span class="me-2">🏆</span> Awards
+            </a>
+          </li>
+          <li class="nav-item mt-auto">
+            <a class="nav-link text-danger" routerLink="logout">
+              <span class="me-2">🔓</span> Logout
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Main content area (project content into this component) -->
+  <main class=" flex-grow-1 p-3">
+    <!-- Place page content here; in a parent layout use <app-sidenavbar> ...content... </app-sidenavbar> -->
+    <ng-content></ng-content>
+  </main>
+</div>

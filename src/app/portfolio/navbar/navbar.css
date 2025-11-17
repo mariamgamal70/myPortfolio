@@ -1,0 +1,71 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+
+nav img {
+  width: 70px;
+  height: 50px;
+}
+
+.navbar {
+  padding: 0;
+  /* position: relative; */
+  border-bottom: 1px solid rgba(70, 70, 70, 0.395)
+}
+
+.navbar-nav {
+  list-style-type: none;
+  gap: 20px;
+  margin-left: auto;
+  align-items: center;
+}
+
+.nav-link {
+  position: relative;
+  color: #565454;
+  text-decoration: none;
+  padding: 1.5rem 0;
+  font-size: 18px;
+}
+
+.nav-link .active {
+  color: #db735c;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #db735c;
+  bottom: 0;
+  /* sit at the bottom of the anchor area */
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 180ms ease;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: #db735c;
+}
+
+.nav-link:hover::after,
+.nav-link:focus::after {
+  transform: scaleX(1);
+}
+
+/* Make an "active" nav item visually identical to hover/focus.
+   Support both a Bootstrap-style `.active` class and ARIA `aria-current="page"`. */
+.nav-link.active {
+  color: #db735c !important;
+}
+
+.nav-link.active::after,
+.nav-item.active .nav-link::after {
+  transform: scaleX(1);
+}
