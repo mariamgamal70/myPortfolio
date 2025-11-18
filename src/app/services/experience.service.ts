@@ -8,7 +8,7 @@ export class ExperienceService {
   apiURL = 'http://localhost:3000/dashboard/experience';
   constructor(private http: HttpClient) {
   }
-  getExperience() {
+  getExperiences() {
     return this.http.get<any[]>(this.apiURL);
   }
   getExperienceById(id: string) {
