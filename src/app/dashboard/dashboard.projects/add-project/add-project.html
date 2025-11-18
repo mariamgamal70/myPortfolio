@@ -1,0 +1,70 @@
+<form class="p-3" [formGroup]="projectForm" (ngSubmit)="onSubmit()" novalidate>
+  <h4 class="mb-3">Add New Project</h4>
+
+  <!-- Project Name -->
+  <div class="mb-3">
+    <label for="name" class="form-label">Project Name</label>
+    <input id="name" formControlName="name" class="form-control" type="text" placeholder="Enter project name" />
+    <div class="invalid-feedback d-block" *ngIf="projectForm.get('name')?.invalid && (projectForm.get('name')?.dirty || projectForm.get('name')?.touched)">
+      Project name is required.
+    </div>
+  </div>
+
+  <!-- Skills (tags) -->
+  <div class="mb-3">
+    <label class="form-label">Skills</label>
+    <div class="input-group">
+      <input
+        #skillInput
+        class="form-control"
+        placeholder="Type a skill and press Add or Enter"
+        (keydown.enter)="$event.preventDefault(); addSkill(skillInput.value); skillInput.value='';" />
+      <button type="button" class="btn btn-outline-primary" (click)="addSkill(skillInput.value); skillInput.value=''">Add</button>
+    </div>
+
+    <div class="mt-2">
+      <ng-container *ngIf="skills.length; else noSkills">
+        <span class="badge bg-secondary me-1 mb-1" *ngFor="let s of skills.controls; let i = index">
+          {{ s.value }}
+          <button type="button" class="btn-close btn-close-white btn-sm ms-2" aria-label="Remove" (click)="removeSkill(i)"></button>
+        </span>
+      </ng-container>
+      <ng-template #noSkills>
+        <div class="form-text">Add at least one skill.</div>
+      </ng-template>
+    </div>
+  </div>
+
+  <!-- Link -->
+  <div class="mb-3">
+    <label for="link" class="form-label">Project Link</label>
+    <input id="link" formControlName="link" class="form-control" type="url" placeholder="https://example.com" />
+    <div class="invalid-feedback d-block" *ngIf="projectForm.get('link')?.invalid && (projectForm.get('link')?.dirty || projectForm.get('link')?.touched)">
+      A valid URL is required.
+    </div>
+  </div>
+
+  <!-- Image URL -->
+  <div class="mb-3">
+    <label for="img" class="form-label">Image URL</label>
+    <input id="img" formControlName="img" class="form-control" type="url" placeholder="https://example.com/image.jpg" />
+    <div class="invalid-feedback d-block" *ngIf="projectForm.get('img')?.invalid && (projectForm.get('img')?.dirty || projectForm.get('img')?.touched)">
+      A valid image URL is required.
+    </div>
+  </div>
+
+  <!-- Status -->
+  <div class="mb-3">
+    <label for="status" class="form-label">Status</label>
+    <select id="status" formControlName="status" class="form-select">
+      <option value="Not Started">Not Started</option>
+      <option value="In Progress">In Progress</option>
+      <option value="Completed">Completed</option>
+    </select>
+  </div>
+
+  <!-- Submit -->
+  <div class="d-flex gap-2">
+    <button type="submit" class="btn btn-primary" [disabled]="projectForm.invalid ">Add Project</button>
+  </div>
+</form>
