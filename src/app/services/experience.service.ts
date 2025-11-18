@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class ExperienceService {
-  apiURL = 'http://localhost:3000/dashboard/experience';
+  apiURL = 'http://localhost:3000/experience';
   constructor(private http: HttpClient) {
   }
   getExperiences() {

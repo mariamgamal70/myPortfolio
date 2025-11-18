@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormControl, FormArray } from '@angular/forms';
 import { ExperienceService } from '../../../services/experience.service';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-add-experience',
   imports: [ReactiveFormsModule, CommonModule],
@@ -33,7 +34,7 @@ export class AddExperience {
     return this.experienceForm.get('responsibilities') as FormArray;
   }
 
-  constructor(private experienceService: ExperienceService) {}
+  constructor(private experienceService: ExperienceService, private router:Router) {}
   onSubmit() {
     const experienceData = this.experienceForm.value;
     this.experienceService.createExperience(experienceData).subscribe({
@@ -42,6 +43,7 @@ export class AddExperience {
       },
       error: (error) => {
         console.error('Error adding experience', error);
+        this.router.navigate(['/dashboard/experience']);
       },
       complete: () => {
         console.log('Add experience request completed');
