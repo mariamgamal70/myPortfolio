@@ -24,18 +24,6 @@ export class AddSkill {
   }
 
   onSubmit() {
-    // const formValue = this.skillForm.value;
-    // console.log(formValue);
-    // const formData = new FormData();
-    // formData.append('name', formValue.name ?? '');
-    // if (formValue.image) {
-    //   formData.append('image', formValue.image, formValue.image.name); // important!
-    // }
-    // console.log(formData);
-    // this.skillsService.createSkill(formData).subscribe({
-    //   next: (value) => console.log('Next:', value),
-    //   error: (error) => console.error('Error:', error)
-    // });
     const formValue = this.skillForm.value;
 
     const formData = new FormData();
@@ -43,6 +31,9 @@ export class AddSkill {
 
     if (formValue.image) {
       formData.append('image', formValue.image);
+    }
+    for (const [key, value] of formData.entries()) {
+      console.log(`${key}: ${value}`);
     }
 
     this.skillsService.createSkill(formData).subscribe({
