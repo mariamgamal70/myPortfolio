@@ -11,6 +11,9 @@ export class EducationService {
   getEducation() {
     return this.http.get<any[]>(this.apiURL);
   }
+  getEducationById(id: string) {
+    return this.http.get<any>(`${this.apiURL}/${id}`);
+  }
   createEducation(education: any) {
     return this.http.post<any>(this.apiURL, education);
   }

@@ -11,6 +11,9 @@ export class AwardsService {
   getAwards() {
     return this.http.get<any[]>(this.apiURL);
   }
+  getAwardById(id: string) {
+    return this.http.get<any>(`${this.apiURL}/${id}`);
+  }
   createAward(award: any) {
     return this.http.post<any>(this.apiURL, award);
   }

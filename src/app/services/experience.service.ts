@@ -11,6 +11,9 @@ export class ExperienceService {
   getExperience() {
     return this.http.get<any[]>(this.apiURL);
   }
+  getExperienceById(id: string) {
+    return this.http.get<any>(`${this.apiURL}/${id}`);
+  }
   createExperience(experience: any) {
     return this.http.post<any>(this.apiURL, experience);
   }

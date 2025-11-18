@@ -11,6 +11,9 @@ export class ContactService {
   getContacts() {
     return this.http.get<any[]>(this.apiURL);
   }
+  getContactById(id: string) {
+    return this.http.get<any>(`${this.apiURL}/${id}`);
+  }
   createContact(contact: any) {
     return this.http.post<any>(this.apiURL, contact);
   }

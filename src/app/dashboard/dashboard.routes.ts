@@ -9,6 +9,7 @@ import { NotfoundComponent } from '../components/notfound/notfound';
 import { AddProject } from './dashboard.projects/add-project/add-project';
 import { RouterModule, Routes } from '@angular/router';
 import { EditProject } from './dashboard.projects/edit-project/edit-project';
+import { AddSkill } from './dashboard.skills/add-skill/add-skill';
 
 export const dashboardRoutes: Routes = [
   { path: '', component: DashboardOverview, pathMatch: 'full' },
@@ -16,9 +17,11 @@ export const dashboardRoutes: Routes = [
   { path: 'education', component: DashboardEducation },
   { path: 'experience', component: DashboardExperience },
   { path: 'skills', component: DashboardSkills },
+  { path: 'skills/add', component: AddSkill },
+  // { path: 'skills/edit:id', component: EditSkill },
   { path: 'projects', component: DashboardProjects},
   { path: 'projects/add', component: AddProject},
-  { path: 'projects/edit:id', component: EditProject },
+  // { path: 'projects/edit:id', component: EditProject },
   { path: 'activities', component: DashboardActivities },
   { path: 'contact', component: DashboardContact },
   { path: '**', component: NotfoundComponent }

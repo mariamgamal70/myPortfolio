@@ -11,19 +11,44 @@ import { CommonModule } from '@angular/common';
 export class AddSkill {
   skillForm = new FormGroup({
     name: new FormControl(''),
-    image: new FormControl(null),
+    image: new FormControl<File | null>(null)
   });
 
-  constructor(private skillsService: SkillsService) {
+  constructor(private skillsService: SkillsService) { }
 
+  onFileChange(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      this.skillForm.patchValue({ image: input.files[0] });
+    }
   }
 
   onSubmit() {
-    const skillData = this.skillForm.value;
-    console.log('Skill:', skillData);
-    this.skillsService.createSkill(skillData).subscribe({
-      next: (value) => console.log('Next:', value),
-      error: (error) => console.error('Error:', error)
+    // const formValue = this.skillForm.value;
+    // console.log(formValue);
+    // const formData = new FormData();
+    // formData.append('name', formValue.name ?? '');
+    // if (formValue.image) {
+    //   formData.append('image', formValue.image, formValue.image.name); // important!
+    // }
+    // console.log(formData);
+    // this.skillsService.createSkill(formData).subscribe({
+    //   next: (value) => console.log('Next:', value),
+    //   error: (error) => console.error('Error:', error)
+    // });
+    const formValue = this.skillForm.value;
+
+    const formData = new FormData();
+    formData.append('name', formValue.name ?? '');
+
+    if (formValue.image) {
+      formData.append('image', formValue.image);
+    }
+
+    this.skillsService.createSkill(formData).subscribe({
+      next: (res) => console.log("Skill created successfully", res),
+      error: (err) => console.error(err)
     });
   }
 }
+

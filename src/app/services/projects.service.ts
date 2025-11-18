@@ -11,6 +11,9 @@ export class ProjectsService {
   getProjects() {
     return this.http.get<any[]>(this.apiURL);
   }
+  getProjectById(id: string) {
+    return this.http.get<any>(`${this.apiURL}/${id}`);
+  }
   createProject(project: any) {
     return this.http.post<any>(this.apiURL, project);
   }

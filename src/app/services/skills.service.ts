@@ -11,6 +11,9 @@ export class SkillsService {
   getSkills() {
     return this.http.get<any[]>(this.apiURL);
   }
+  getSkillById(id: string) {
+    return this.http.get<any>(`${this.apiURL}/${id}`);
+  }
   createSkill(skill: any) {
     return this.http.post<any>(this.apiURL, skill);
   }

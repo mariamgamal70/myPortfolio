@@ -11,6 +11,9 @@ export class ActivitiesService {
   getActivities() {
     return this.http.get<any[]>(this.apiURL);
   }
+  getActivityById(id: string) {
+    return this.http.get<any>(`${this.apiURL}/${id}`);
+  }
   createActivity(activity: any) {
     return this.http.post<any>(this.apiURL, activity);
   }
