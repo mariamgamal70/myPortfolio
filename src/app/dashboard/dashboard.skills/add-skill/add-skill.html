@@ -3,7 +3,7 @@
     <label for="name">Name</label>
     <input id="name" formControlName="name" />
     <div *ngIf="skillForm.get('name')?.touched && skillForm.get('name')?.invalid">
-      <small *ngIf="skillForm.get('name')?.errors?.required">Name is required</small>
+      <small *ngIf="skillForm.get('name')?.errors?.['required']">Name is required</small>
     </div>
   </div>
 
@@ -11,7 +11,7 @@
     <label for="image">Image URL</label>
     <input id="image" formControlName="image" />
     <div *ngIf="skillForm.get('image')?.touched && skillForm.get('image')?.invalid">
-      <small *ngIf="skillForm.get('image')?.errors?.required">Image is required</small>
+      <small *ngIf="skillForm.get('image')?.errors?.['required']">Image is required</small>
     </div>
   </div>
 

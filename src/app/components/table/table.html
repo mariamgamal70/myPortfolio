@@ -14,7 +14,13 @@
         <td >{{ row[col] }}</td>
         }
         <td>
-          <div class="dropdown"></div>
+          <div class="dropdown">
+            <select class="form-select form-select-sm" aria-label="Action select">
+              <option selected>Actions</option>
+              <option (click)="onEdit(row)">Edit</option>
+              <option (click)="onDelete(row)">Delete</option>
+            </select>
+          </div>
             <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
               Actions
             </button>
@@ -22,7 +28,6 @@
               <li><button class="dropdown-item" type="button" (click)="onEdit(row)">Edit</button></li>
               <li><button class="dropdown-item text-danger" type="button" (click)="onDelete(row)">Delete</button></li>
             </ul>
-          </div>
         </td>
       </tr>
     }

@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormControl, FormArray } from '@angular/forms';
 import { ExperienceService } from '../../../services/experience.service';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-add-experience',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './add-experience.html',
   styleUrl: './add-experience.css',
 })
@@ -27,6 +28,11 @@ export class AddExperience {
   removeResponsibility(index: number) {
     (this.experienceForm.get('responsibilities') as FormArray).removeAt(index);
   }
+
+  get responsibilitiesArray(): FormArray {
+    return this.experienceForm.get('responsibilities') as FormArray;
+  }
+
   constructor(private experienceService: ExperienceService) {}
   onSubmit() {
     const experienceData = this.experienceForm.value;

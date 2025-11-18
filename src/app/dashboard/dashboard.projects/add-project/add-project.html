@@ -16,6 +16,7 @@
     <div class="input-group">
       <input
         #skillInput
+        formControlName="skills"
         class="form-control"
         placeholder="Type a skill and press Add or Enter"
         (keydown.enter)="$event.preventDefault(); addSkill(skillInput.value); skillInput.value='';" />
@@ -23,8 +24,8 @@
     </div>
 
     <div class="mt-2">
-      <ng-container *ngIf="skills.length; else noSkills">
-        <span class="badge bg-secondary me-1 mb-1" *ngFor="let s of skills.controls; let i = index">
+      <ng-container *ngIf="skillsArray.length; else noSkills">
+        <span class="badge bg-secondary me-1 mb-1" *ngFor="let s of skillsArray.controls; let i = index">
           {{ s.value }}
           <button type="button" class="btn-close btn-close-white btn-sm ms-2" aria-label="Remove" (click)="removeSkill(i)"></button>
         </span>

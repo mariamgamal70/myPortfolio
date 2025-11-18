@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormControl, FormArray } from '@angular/forms';
 import { ProjectsService } from '../../../services/projects.service';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-add-project',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './add-project.html',
   styleUrl: './add-project.css',
 })
@@ -24,6 +25,11 @@ export class AddProject {
   removeSkill(index: number) {
     (this.projectForm.get('skills') as FormArray).removeAt(index);
   }
+
+  get skillsArray(): FormArray {
+    return this.projectForm.get('skills') as FormArray;
+  }
+
   onSubmit() {
     const projectData = this.projectForm.value;
     this.projectsService.createProject(projectData).subscribe({

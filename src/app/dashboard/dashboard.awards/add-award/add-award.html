@@ -26,7 +26,7 @@
   <div class="form-group">
     <label for="description">Description</label>
     <div formArrayName="description">
-      <div *ngFor="let ctrl of awardForm.get('description')?.controls; let i = index" class="description-item">
+      <div *ngFor="let ctrl of descriptionArray.controls ; let i = index" class="description-item">
         <textarea [formControlName]="i" class="form-control" rows="2" placeholder="Enter description {{ i + 1 }}"></textarea>
         <button type="button" class="btn btn-link text-danger" (click)="removeDescription(i)">Remove</button>
         <div class="invalid" *ngIf="awardForm.get(['description', i])?.touched && awardForm.get(['description', i])?.invalid">

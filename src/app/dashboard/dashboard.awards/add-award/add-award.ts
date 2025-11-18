@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormControl,FormArray } from '@angular/forms';
 import { AwardsService } from '../../../services/awards.service';
+import  { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-add-award',
-  imports: [ ReactiveFormsModule  ],
+  imports: [ ReactiveFormsModule, CommonModule ],
   templateUrl: './add-award.html',
   styleUrl: './add-award.css',
 })
@@ -21,6 +22,9 @@ export class AddAward {
   }
   removeDescription(index: number) {
     (this.awardForm.get('description') as FormArray).removeAt(index);
+  }
+  get descriptionArray(): FormArray {
+    return this.awardForm.get('description') as FormArray;
   }
   onSubmit() {
     const awardData = this.awardForm.value;

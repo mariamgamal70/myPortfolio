@@ -17,10 +17,10 @@
 
   <div formArrayName="description">
     <label>Description</label>
-    <div *ngFor="let descCtrl of activityForm.get('description')?.controls; let i = index">
+      <div *ngFor="let ctrl of descriptionArray.controls ; let i = index">
       <textarea [formControlName]="i" rows="2" placeholder="Description {{ i + 1 }}"></textarea>
       <button type="button" (click)="removeDescription(i)">Remove</button>
-      <div *ngIf="descCtrl?.invalid && descCtrl?.touched" style="color:crimson">
+      <div *ngIf="ctrl?.invalid && ctrl?.touched" style="color:crimson">
         Description is required.
       </div>
     </div>

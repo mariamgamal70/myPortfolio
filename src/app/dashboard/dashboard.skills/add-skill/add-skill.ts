@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
 import { SkillsService } from '../../../services/skills.service';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-add-skill',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './add-skill.html',
   styleUrl: './add-skill.css',
 })

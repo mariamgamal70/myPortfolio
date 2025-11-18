@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
 import { ContactService } from '../../../services/contact.service';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-add-contact',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './add-contact.html',
   styleUrl: './add-contact.css',
 })

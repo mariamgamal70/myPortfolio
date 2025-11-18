@@ -47,7 +47,7 @@
   <div class="form-group">
     <label>Responsibilities</label>
     <div formArrayName="responsibilities">
-      <div *ngFor="let ctrl of experienceForm.get('responsibilities')?.controls; let i = index" class="d-flex mb-2">
+      <div *ngFor="let ctrl of responsibilitiesArray.controls; let i = index" class="d-flex mb-2">
         <input [formControlName]="i" type="text" class="form-control" placeholder="Responsibility" />
         <button type="button" class="btn btn-outline-danger btn-sm ml-2" (click)="removeResponsibility(i)">Remove</button>
       </div>

@@ -3,22 +3,22 @@
     <label>Institution *</label>
     <input formControlName="institution" />
     <div *ngIf="educationForm.get('institution')?.invalid && (educationForm.get('institution')?.dirty || educationForm.get('institution')?.touched)"></div>
-      <small *ngIf="educationForm.get('institution')?.errors?.required">Institution is required.</small>
-      <small *ngIf="educationForm.get('institution')?.errors?.minlength">Institution is too short.</small>
+      <small *ngIf="educationForm.get('institution')?.errors?.['required']">Institution is required.</small>
+      <small *ngIf="educationForm.get('institution')?.errors?.['minlength'] ">Institution is too short.</small>
     </div>
 
   <div>
     <label>Degree *</label>
     <input formControlName="degree" />
     <div *ngIf="educationForm.get('degree')?.invalid && (educationForm.get('degree')?.dirty || educationForm.get('degree')?.touched)"></div>
-      <small *ngIf="educationForm.get('degree')?.errors?.required">Degree is required.</small>
+      <small *ngIf="educationForm.get('degree')?.errors?.['required']">Degree is required.</small>
     </div>
 
   <div>
     <label>Field of Study *</label>
     <input formControlName="fieldOfStudy" />
     <div *ngIf="educationForm.get('fieldOfStudy')?.invalid && (educationForm.get('fieldOfStudy')?.dirty || educationForm.get('fieldOfStudy')?.touched)">
-      <small *ngIf="educationForm.get('fieldOfStudy')?.errors?.required">Field of study is required.</small>
+      <small *ngIf="educationForm.get('fieldOfStudy')?.errors?.['required']">Field of study is required.</small>
     </div>
   </div>
 
@@ -26,7 +26,7 @@
     <label>Start Date *</label>
     <input type="date" formControlName="startDate" />
     <div *ngIf="educationForm.get('startDate')?.invalid && (educationForm.get('startDate')?.dirty || educationForm.get('startDate')?.touched)"> </div>
-      <small *ngIf="educationForm.get('startDate')?.errors?.required">Start date is required.</small>
+      <small *ngIf="educationForm.get('startDate')?.errors?.['required']">Start date is required.</small>
     </div>
 
   <div>
@@ -50,7 +50,7 @@
 
   <div formArrayName="courses">
     <label>Courses</label>
-    <div *ngFor="let ctrl of educationForm.get('courses')?.controls; let i = index">
+    <div *ngFor="let ctrl of coursesArray.controls; let i = index">
       <div [formGroupName]="i" *ngIf="false"></div> <!-- no nested group; keeps structure clear -->
       <input [formControlName]="i" placeholder="Course name" />
       <button type="button" (click)="removeCourse(i)">Remove</button>

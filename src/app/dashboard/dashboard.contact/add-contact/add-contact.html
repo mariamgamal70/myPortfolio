@@ -4,7 +4,7 @@
     <label for="name">Name</label>
     <input id="name" type="text" formControlName="name" />
     <div *ngIf="contactForm.get('name')?.touched && contactForm.get('name')?.invalid">
-      <small *ngIf="contactForm.get('name')?.errors?.required">Name is required.</small>
+      <small *ngIf="contactForm.get('name')?.errors?.['required']">Name is required.</small>
     </div>
   </div>
 
@@ -12,7 +12,7 @@
     <label for="image">Image URL</label>
     <input id="image" type="text" formControlName="image" />
     <div *ngIf="contactForm.get('image')?.touched && contactForm.get('image')?.invalid">
-      <small *ngIf="contactForm.get('image')?.errors?.required">Image URL is required.</small>
+      <small *ngIf="contactForm.get('image')?.errors?.['required']">Image URL is required.</small>
     </div>
   </div>
 
@@ -20,7 +20,7 @@
     <label for="link">Link</label>
     <input id="link" type="text" formControlName="link" />
     <div *ngIf="contactForm.get('link')?.touched && contactForm.get('link')?.invalid">
-      <small *ngIf="contactForm.get('link')?.errors?.required">Link is required.</small>
+      <small *ngIf="contactForm.get('link')?.errors?.['required']">Link is required.</small>
     </div>
   </div>
 

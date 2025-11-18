@@ -23,6 +23,10 @@ export class AddActivity {
   removeDescription(index: number) {
     (this.activityForm.get('description') as FormArray).removeAt(index);
   }
+
+  get descriptionArray(): FormArray {
+    return this.activityForm.get('description') as FormArray;
+  }
   onSubmit() {
     const activityData = this.activityForm.value;
     this.activitiesService.createActivity(activityData).subscribe({
