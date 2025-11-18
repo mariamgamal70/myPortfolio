@@ -1,35 +1,42 @@
 <table class="table table-striped">
   <thead>
     <tr>
-       @for(item of columns;track $index){
+      <!-- Iterate over the 'columns' input to create headers -->
+      @for(item of columns; track $index) {
       <th>{{ item | titlecase }}</th>
-       }
-       <th>Actions</th>
+      }
+      <!-- Static header for the actions column -->
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
-    @for(row of data;track $index){
-      <tr>
-        @for(col of columns;track $index){
-        <td >{{ row[col] }}</td>
-        }
-        <td>
-          <div class="dropdown">
-            <select class="form-select form-select-sm" aria-label="Action select">
-              <option selected>Actions</option>
-              <option (click)="onEdit(row)">Edit</option>
-              <option (click)="onDelete(row)">Delete</option>
-            </select>
-          </div>
-            <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Actions
-            </button>
-            <ul class="dropdown-menu dropdown-menu-end">
-              <li><button class="dropdown-item" type="button" (click)="onEdit(row)">Edit</button></li>
-              <li><button class="dropdown-item text-danger" type="button" (click)="onDelete(row)">Delete</button></li>
-            </ul>
-        </td>
-      </tr>
+    <!-- Iterate over the 'data' input to create rows -->
+    @for(row of data; track $index) {
+    <tr>
+      <!-- Iterate over the 'columns' again to display the data for each cell -->
+      @for(col of columns; track $index) {
+      <td>{{ row[col] }}</td>
+      }
+
+      <!-- Actions Column -->
+      <td>
+        <div class="btn-group" role="group" aria-label="Table actions">
+          <!-- Edit Button -->
+          <button class="btn btn-sm btn-primary" type="button" (click)="onAction('edit', row)">
+            Edit
+          </button>
+          <!-- Delete Button -->
+          <button class="btn btn-sm btn-danger" type="button" (click)="onAction('delete', row)">
+            Delete
+          </button>
+        </div>
+      </td>
+    </tr>
     }
   </tbody>
 </table>
+
+<!-- A message to display if there is no data -->
+@if (data.length === 0) {
+<p>No records found.</p>
+}

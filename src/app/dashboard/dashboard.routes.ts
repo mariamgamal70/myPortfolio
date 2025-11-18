@@ -6,6 +6,7 @@ import { DashboardExperience } from './dashboard.experience/dashboard.experience
 import { DashboardProjects } from './dashboard.projects/dashboard.projects';
 import { DashboardSkills } from './dashboard.skills/dashboard.skills';
 import { NotfoundComponent } from '../components/notfound/notfound';
+import { AddProject } from './dashboard.projects/add-project/add-project';
 import { RouterModule, Routes } from '@angular/router';
 
 export const dashboardRoutes: Routes = [
@@ -14,7 +15,8 @@ export const dashboardRoutes: Routes = [
   { path: 'education', component: DashboardEducation },
   { path: 'experience', component: DashboardExperience },
   { path: 'skills', component: DashboardSkills },
-  { path: 'projects', component: DashboardProjects },
+  {path: 'projects', component: DashboardProjects},
+  { path: 'projects/add', component: AddProject},
   { path: 'activities', component: DashboardActivities },
   { path: 'contact', component: DashboardContact },
   { path: '**', component: NotfoundComponent }

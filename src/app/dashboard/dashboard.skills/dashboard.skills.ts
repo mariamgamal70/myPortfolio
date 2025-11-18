@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { RouterOutlet, RouterLink } from '@angular/router';
 import { Table } from '../../components/table/table';
+
 @Component({
   selector: 'app-dashboard.skills',
   imports: [RouterOutlet, RouterLink, Table],
@@ -11,6 +12,6 @@ import { Table } from '../../components/table/table';
 })
 export class DashboardSkills {
   constructor(private http: HttpClient) { }
-  
+
 
 }

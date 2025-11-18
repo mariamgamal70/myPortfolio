@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class ProjectsService {
-  apiURL = 'http://localhost:3000/dashboard/projects';
+  apiURL = 'http://localhost:3000/projects';
   constructor(private http: HttpClient) {
   }
   getProjects() {
