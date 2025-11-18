@@ -8,14 +8,16 @@ import { DashboardSkills } from './dashboard.skills/dashboard.skills';
 import { NotfoundComponent } from '../components/notfound/notfound';
 import { AddProject } from './dashboard.projects/add-project/add-project';
 import { RouterModule, Routes } from '@angular/router';
-import { EditProject } from './dashboard.projects/edit-project/edit-project';
+// import { EditProject } from './dashboard.projects/edit-project/edit-project';
 import { AddSkill } from './dashboard.skills/add-skill/add-skill';
+import { AddExperience } from './dashboard.experience/add-experience/add-experience';
 
 export const dashboardRoutes: Routes = [
   { path: '', component: DashboardOverview, pathMatch: 'full' },
   { path: 'overview', component: DashboardOverview },
   { path: 'education', component: DashboardEducation },
   { path: 'experience', component: DashboardExperience },
+  { path: 'experience/add', component: AddExperience },
   { path: 'skills', component: DashboardSkills },
   { path: 'skills/add', component: AddSkill },
   // { path: 'skills/edit:id', component: EditSkill },
