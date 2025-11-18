@@ -31,7 +31,7 @@ export class DashboardOverview {
     this.awardsService.getAwards().subscribe((data: any[]) => {
       this.awardsCount = data.length;
     });
-    this.experienceService.getExperience().subscribe((data: any[]) => {
+    this.experienceService.getExperiences().subscribe((data: any[]) => {
       this.experienceCount = data.length;
     });
     this.educationService.getEducation().subscribe((data: any[]) => {
