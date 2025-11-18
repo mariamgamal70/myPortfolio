@@ -1,1 +1,37 @@
-<p>dashboard.overview works!</p>
+<!-- File: src/app/dashboard/dashboard.overview/dashboard.overview.html -->
+<div class="dashboard-overview">
+  <h2>Overview</h2>
+
+  <div class="overview-cards" style="display:flex;gap:1rem;flex-wrap:wrap;">
+    <div class="card" style="padding:1rem;border:1px solid #ddd;border-radius:6px;min-width:120px;text-align:center;">
+      <h3 style="margin:0 0 .5rem 0;">Awards</h3>
+      <p class="count" style="font-size:1.5rem;margin:0;">{{ awardsCount }}</p>
+    </div>
+
+    <div class="card" style="padding:1rem;border:1px solid #ddd;border-radius:6px;min-width:120px;text-align:center;">
+      <h3 style="margin:0 0 .5rem 0;">Experience</h3>
+      <p class="count" style="font-size:1.5rem;margin:0;">{{ experienceCount }}</p>
+    </div>
+
+    <div class="card" style="padding:1rem;border:1px solid #ddd;border-radius:6px;min-width:120px;text-align:center;">
+      <h3 style="margin:0 0 .5rem 0;">Projects:</h3>
+      <p class="count" style="font-size:1.5rem;margin:0;">{{ projectsCount }}</p>
+    </div>
+
+    <div class="card" style="padding:1rem;border:1px solid #ddd;border-radius:6px;min-width:120px;text-align:center;">
+      <h3 style="margin:0 0 .5rem 0;">Education:</h3>
+      <p class="count" style="font-size:1.5rem;margin:0;">{{ educationCount }}</p>
+    </div>
+
+
+    <div class="card" style="padding:1rem;border:1px solid #ddd;border-radius:6px;min-width:120px;text-align:center;">
+      <h3 style="margin:0 0 .5rem 0;">Skills:</h3>
+      <span style="font-size:1.25rem;margin-left:.5rem;">{{ skillsCount }}</span>
+    </div>
+    <div class="card" style="padding:1rem;border:1px solid #ddd;border-radius:6px;min-width:120px;text-align:center;">
+      <h3 style="margin:0 0 .5rem 0;">Education:</h3>
+      <p class="count" style="font-size:1.5rem;margin:0;">{{ educationCount }}</p>
+    </div>
+  </div>
+
+</div>
