@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormControl, FormArray } from '@angular/forms';
 import { ProjectsService } from '../../../services/projects.service';
 import { CommonModule } from '@angular/common';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-add-project',
   imports: [ReactiveFormsModule, CommonModule],
@@ -20,7 +20,7 @@ export class AddProject {
     status: new FormControl<string>('Not Started'),
   });
 
-  constructor(private projectsService: ProjectsService) { }
+  constructor(private projectsService: ProjectsService, private router: Router) { }
 
   get skillsArray(): FormArray<FormControl<string | null>> {
     return this.projectForm.get('skills') as FormArray<FormControl<string | null>>;
@@ -59,7 +59,10 @@ export class AddProject {
     }
 
     this.projectsService.createProject(formData).subscribe({
-      next: (res) => console.log("Project created successfully", res),
+      next: (res) => {console.log("Project created successfully", res)
+        this.router.navigate(['/dashboard/projects']);
+
+      },
       error: (err) => console.error(err)
     });
   }

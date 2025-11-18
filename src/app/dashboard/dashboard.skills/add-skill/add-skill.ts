@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
 import { SkillsService } from '../../../services/skills.service';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-add-skill',
   imports: [ReactiveFormsModule, CommonModule],
@@ -14,7 +15,7 @@ export class AddSkill {
     image: new FormControl<File | null>(null)
   });
 
-  constructor(private skillsService: SkillsService) { }
+  constructor(private skillsService: SkillsService, private router: Router) { }
 
   onFileChange(event: Event) {
     const input = event.target as HTMLInputElement;
@@ -37,7 +38,9 @@ export class AddSkill {
     }
 
     this.skillsService.createSkill(formData).subscribe({
-      next: (res) => console.log("Skill created successfully", res),
+      next: (res) => {console.log("Skill created successfully", res)
+        this.router.navigate(['/dashboard/skills']);
+      },
       error: (err) => console.error(err)
     });
   }
