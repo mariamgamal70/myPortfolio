@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormControl,FormArray } from '@angular/forms';
 import { AwardsService } from '../../../services/awards.service';
 import  { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-add-award',
   imports: [ ReactiveFormsModule, CommonModule ],
@@ -15,7 +16,7 @@ export class AddAward {
     date: new FormControl(''),
     description: new FormArray([new FormControl('')]),
   });
-  constructor(private awardsService: AwardsService) { }
+  constructor(private awardsService: AwardsService, private router: Router) { }
 
   addDescription() {
     (this.awardForm.get('description') as FormArray).push(new FormControl(''));
@@ -31,7 +32,8 @@ export class AddAward {
     this.awardsService.createAward(awardData).subscribe({
       next: (response) => {
         console.log('Award added successfully', response);
-        this.awardForm.reset();
+        this.router.navigate(['/dashboard/awards']);
+
       },
       error: (error) => {
         console.error('Error adding award', error);

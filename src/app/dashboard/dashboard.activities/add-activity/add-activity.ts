@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormControl, FormGroup, FormArray } from '@angular/forms';
 import { ActivitiesService } from '../../../services/activities.service';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-add-activity',
   imports: [ ReactiveFormsModule, CommonModule ],
@@ -16,7 +17,7 @@ export class AddActivity {
     date: new FormControl(''),
   });
 
-  constructor(private activitiesService: ActivitiesService) { }
+  constructor(private activitiesService: ActivitiesService, private router: Router) { }
   addDescription() {
     (this.activityForm.get('description') as FormArray).push(new FormControl(''));
   }
@@ -32,6 +33,8 @@ export class AddActivity {
     this.activitiesService.createActivity(activityData).subscribe({
       next: (response) => {
         console.log('Activity created successfully:', response);
+        this.router.navigate(['/dashboard/activities']);
+
       }
       ,      error: (error) => {
         console.error('Error creating activity:', error);

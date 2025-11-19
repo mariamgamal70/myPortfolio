@@ -12,6 +12,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddSkill } from './dashboard.skills/add-skill/add-skill';
 import { AddExperience } from './dashboard.experience/add-experience/add-experience';
 import { AddEducation } from './dashboard.education/add-education/add-education';
+import { AddActivity } from './dashboard.activities/add-activity/add-activity';
+import { AddContact } from './dashboard.contact/add-contact/add-contact';
+import { DashboardAwards } from './dashboard.awards/dashboard.awards';
+import { AddAward } from './dashboard.awards/add-award/add-award';
 
 export const dashboardRoutes: Routes = [
   { path: '', component: DashboardOverview, pathMatch: 'full' },
@@ -29,7 +33,14 @@ export const dashboardRoutes: Routes = [
   { path: 'projects/add', component: AddProject},
   // { path: 'projects/edit:id', component: EditProject },
   { path: 'activities', component: DashboardActivities },
-  { path: 'contact', component: DashboardContact },
+  { path: 'activities/add', component: AddActivity },
+
+  { path: 'contacts', component: DashboardContact },
+  { path: 'contacts/add', component: AddContact },
+
+  { path: 'awards', component: DashboardAwards },
+  { path: 'awards/add', component: AddAward },
+
   { path: '**', component: NotfoundComponent }
 ];
 
