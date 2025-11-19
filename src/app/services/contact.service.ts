@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class ContactService {
-  apiURL = 'http://localhost:3000/dashboard/contact';
+  apiURL = 'http://localhost:3000/contact';
   constructor(private http: HttpClient) {
   }
   getContacts() {

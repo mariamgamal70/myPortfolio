@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormControl,FormArray } from '@angular/forms';
 import { EducationService } from '../../../services/education.service';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-add-education',
   imports: [ReactiveFormsModule, CommonModule ],
@@ -20,7 +21,7 @@ export class AddEducation {
     status: new FormControl('Completed'),
     courses: new FormArray([ new FormControl('') ])
   });
-  constructor(private educationService: EducationService) { }
+  constructor(private educationService: EducationService, private router: Router) { }
 
   addCourse() {
     (this.educationForm.get('courses') as FormArray).push(new FormControl(''));
@@ -37,8 +38,8 @@ export class AddEducation {
     this.educationService.createEducation(educationData).subscribe({
       next: (response) => {
         console.log('Education added successfully', response);
-        this.educationForm.reset();
-      },
+        this.router.navigate(['/dashboard/education']);
+        },
       error: (error) => {
         console.error('Error adding education', error);
       }

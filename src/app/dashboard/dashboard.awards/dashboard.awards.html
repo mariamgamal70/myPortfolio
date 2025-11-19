@@ -1,3 +1,3 @@
-<button class="btn btn-success mb-3" routerLink="add-award">Add New Award</button>
-<app-table></app-table>
+<button class="btn btn-success mb-3" routerLink="/dashboard/awards/add">Add New Award</button>
+<app-table [data]="awardsData" [columns]="awardColumns" (action)="handleTableAction($event)">
 <router-outlet></router-outlet>

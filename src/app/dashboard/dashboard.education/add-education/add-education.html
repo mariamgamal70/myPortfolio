@@ -1,7 +1,7 @@
 <form [formGroup]="educationForm" (ngSubmit)="onSubmit()" novalidate>
   <div>
     <label>Institution *</label>
-    <input formControlName="institution" />
+    <input formControlName="institution" class="form-control" />
     <div *ngIf="educationForm.get('institution')?.invalid && (educationForm.get('institution')?.dirty || educationForm.get('institution')?.touched)"></div>
       <small *ngIf="educationForm.get('institution')?.errors?.['required']">Institution is required.</small>
       <small *ngIf="educationForm.get('institution')?.errors?.['minlength'] ">Institution is too short.</small>
@@ -9,14 +9,14 @@
 
   <div>
     <label>Degree *</label>
-    <input formControlName="degree" />
+    <input formControlName="degree" class="form-control"/>
     <div *ngIf="educationForm.get('degree')?.invalid && (educationForm.get('degree')?.dirty || educationForm.get('degree')?.touched)"></div>
       <small *ngIf="educationForm.get('degree')?.errors?.['required']">Degree is required.</small>
     </div>
 
   <div>
     <label>Field of Study *</label>
-    <input formControlName="fieldOfStudy" />
+    <input formControlName="fieldOfStudy" class="form-control" />
     <div *ngIf="educationForm.get('fieldOfStudy')?.invalid && (educationForm.get('fieldOfStudy')?.dirty || educationForm.get('fieldOfStudy')?.touched)">
       <small *ngIf="educationForm.get('fieldOfStudy')?.errors?.['required']">Field of study is required.</small>
     </div>
@@ -24,7 +24,7 @@
 
   <div>
     <label>Start Date *</label>
-    <input type="date" formControlName="startDate" />
+    <input type="date" formControlName="startDate" class="form-control" />
     <div *ngIf="educationForm.get('startDate')?.invalid && (educationForm.get('startDate')?.dirty || educationForm.get('startDate')?.touched)"> </div>
       <small *ngIf="educationForm.get('startDate')?.errors?.['required']">Start date is required.</small>
     </div>
@@ -34,18 +34,18 @@
     <input
       type="date"
       formControlName="endDate"
-      [disabled]="educationForm.get('status')?.value === 'Present'"
+      [disabled]="educationForm.get('status')?.value === 'Present'" class="form-control"
     />
   </div>
 
   <div>
     <label>Grade</label>
-    <input formControlName="grade" />
+    <input formControlName="grade" class="form-control"/>
   </div>
 
   <div>
     <label>Description</label>
-    <textarea formControlName="description"></textarea>
+    <textarea formControlName="description" class="form-control"></textarea>
   </div>
 
   <div formArrayName="courses">
@@ -53,20 +53,20 @@
     <div *ngFor="let ctrl of coursesArray.controls; let i = index">
       <div [formGroupName]="i" *ngIf="false"></div> <!-- no nested group; keeps structure clear -->
       <input [formControlName]="i" placeholder="Course name" />
-      <button type="button" (click)="removeCourse(i)">Remove</button>
+      <button type="button" (click)="removeCourse(i)" class="btn btn-outline-danger btn-sm ml-2">Remove</button>
     </div>
-    <button type="button" (click)="addCourse()">Add course</button>
+    <button type="button" (click)="addCourse()" class="btn btn-outline-primary btn-sm mt-2">Add course</button>
   </div>
 
   <div>
     <label>Status</label>
-    <select formControlName="status" >
+    <select formControlName="status"  class="form-select">
       <option value="Present">Present</option>
       <option value="Completed">Completed</option>
     </select>
   </div>
 
   <div>
-    <button type="submit" [disabled]="educationForm.invalid">Save</button>
+    <button type="submit" class="btn btn-primary" [disabled]="educationForm.invalid">Add education</button>
   </div>
 </form>

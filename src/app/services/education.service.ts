@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class EducationService {
-  apiURL = 'http://localhost:3000/dashboard/education';
+  apiURL = 'http://localhost:3000/education';
   constructor(private http: HttpClient) {
   }
   getEducation() {

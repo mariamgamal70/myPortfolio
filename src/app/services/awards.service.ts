@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class AwardsService {
-  apiURL = 'http://localhost:3000/dashboard/awards';
+  apiURL = 'http://localhost:3000/awards';
   constructor(private http: HttpClient) {
   }
   getAwards() {

@@ -11,13 +11,17 @@ import { RouterModule, Routes } from '@angular/router';
 // import { EditProject } from './dashboard.projects/edit-project/edit-project';
 import { AddSkill } from './dashboard.skills/add-skill/add-skill';
 import { AddExperience } from './dashboard.experience/add-experience/add-experience';
+import { AddEducation } from './dashboard.education/add-education/add-education';
 
 export const dashboardRoutes: Routes = [
   { path: '', component: DashboardOverview, pathMatch: 'full' },
   { path: 'overview', component: DashboardOverview },
   { path: 'education', component: DashboardEducation },
+  { path: 'education/add', component: AddEducation },
+  // { path: 'education/edit:id', component: EditEducation },
   { path: 'experience', component: DashboardExperience },
   { path: 'experience/add', component: AddExperience },
+  // { path: 'experience/edit:id', component: EditExperience  },
   { path: 'skills', component: DashboardSkills },
   { path: 'skills/add', component: AddSkill },
   // { path: 'skills/edit:id', component: EditSkill },
