@@ -1,7 +1,7 @@
 <form [formGroup]="activityForm" (ngSubmit)="onSubmit()">
   <div>
     <label for="place">Place</label>
-    <input id="place" type="text" formControlName="place" placeholder="Enter place" />
+    <input id="place" type="text" formControlName="place" placeholder="Enter place" class="form-control" />
     <div *ngIf="activityForm.get('place')?.invalid && activityForm.get('place')?.touched" style="color:crimson">
       Place is required.
     </div>
@@ -9,7 +9,7 @@
 
   <div>
     <label for="position">Position</label>
-    <input id="position" type="text" formControlName="position" placeholder="Enter position" />
+    <input id="position" type="text" formControlName="position" placeholder="Enter position" class="form-control" />
     <div *ngIf="activityForm.get('position')?.invalid && activityForm.get('position')?.touched" style="color:crimson">
       Position is required.
     </div>
@@ -18,27 +18,27 @@
   <div formArrayName="description">
     <label>Description</label>
       <div *ngFor="let ctrl of descriptionArray.controls ; let i = index">
-      <textarea [formControlName]="i" rows="2" placeholder="Description {{ i + 1 }}"></textarea>
-      <button type="button" (click)="removeDescription(i)">Remove</button>
+      <textarea [formControlName]="i" rows="2" placeholder="Description {{ i + 1 }}" class="form-control"></textarea>
+      <button type="button" (click)="removeDescription(i)" class="btn btn-danger">Remove</button>
       <div *ngIf="ctrl?.invalid && ctrl?.touched" style="color:crimson">
         Description is required.
       </div>
     </div>
 
     <div>
-      <button type="button" (click)="addDescription()">Add description</button>
+      <button type="button" (click)="addDescription()" class="btn btn-secondary">Add description</button>
     </div>
   </div>
 
   <div>
     <label for="date">Date</label>
-    <input id="date" type="date" formControlName="date" />
+    <input id="date" type="date" formControlName="date" class="form-control" />
     <div *ngIf="activityForm.get('date')?.invalid && activityForm.get('date')?.touched" style="color:crimson">
       Date is required.
     </div>
   </div>
 
   <div>
-    <button type="submit" [disabled]="activityForm.invalid">Save Activity</button>
+    <button type="submit" [disabled]="activityForm.invalid" class="btn btn-primary">Save Activity</button>
   </div>
 </form>
